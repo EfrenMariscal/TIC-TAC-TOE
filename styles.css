@@ -43,6 +43,33 @@ body {
     background-color: #21a1f1;
 }
 
+/* Marcador de puntuación */
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.score {
+    font-size: 1.5em;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3a3f47;
+    color: #61dafb;
+    text-align: center;
+    width: 100px;
+}
+
+#x-score {
+    border: 2px solid #61dafb;
+}
+
+#o-score {
+    border: 2px solid #ff6347;
+}
+
 /* Contenedor del juego */
 .game-container {
     display: flex;

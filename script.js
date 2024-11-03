@@ -2,6 +2,10 @@ const cells = document.querySelectorAll('[data-cell]');
 const winningMessageText = document.getElementById('winning-message');
 const startScreen = document.getElementById('start-screen');
 const gameContainer = document.getElementById('game-container');
+const xScoreDisplay = document.getElementById('x-score');
+const oScoreDisplay = document.getElementById('o-score');
+let xScore = 0;
+let oScore = 0;
 let turn = 'X';
 let gameMode = '2p';
 
@@ -39,6 +43,7 @@ function handleClick(event) {
     cell.classList.add('marked');
 
     if (checkWin()) {
+        updateScore(turn);
         endGame(false);
     } else if (isDraw()) {
         endGame(true);
@@ -49,7 +54,6 @@ function handleClick(event) {
         }
     }
 
-    // Quitar la clase de animación después de que termine
     setTimeout(() => cell.classList.remove('marked'), 300);
 }
 
@@ -61,6 +65,7 @@ function computerMove() {
     randomCell.removeEventListener('click', handleClick);
 
     if (checkWin()) {
+        updateScore('O');
         endGame(false);
     } else if (isDraw()) {
         endGame(true);
@@ -80,13 +85,25 @@ function checkWin() {
 }
 
 function isDraw() {
-    return [...cells].every(cell => cell.textContent === 'X' || cell.textContent === 'O');
+    return [...cells].every(cell => cell.textContent !== '');
 }
 
 function endGame(draw) {
     if (draw) {
-        winningMessageText.textContent = 'Es un empate!';
+        winningMessageText.textContent = "¡Es un empate!";
     } else {
-        winningMessageText.textContent = `¡${turn} gana!`;
+        winningMessageText.textContent = `¡${turn} ha ganado!`;
+    }
+
+    cells.forEach(cell => cell.removeEventListener('click', handleClick));
+}
+
+function updateScore(player) {
+    if (player === 'X') {
+        xScore++;
+        xScoreDisplay.textContent = `X: ${xScore}`;
+    } else if (player === 'O') {
+        oScore++;
+        oScoreDisplay.textContent = `O: ${oScore}`;
     }
 }

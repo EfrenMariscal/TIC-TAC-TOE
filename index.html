@@ -15,9 +15,17 @@
         <button onclick="startGame('cpu')">Contra la Computadora</button>
     </div>
 
-    <!-- Tablero del juego (Oculto al principio) -->
+    <!-- Contenedor de juego (oculto al inicio) -->
     <div class="game-container" id="game-container" style="display: none;">
         <h1>Tic-Tac-Toe</h1>
+
+        <!-- Marcador de puntuación -->
+        <div class="score-board">
+            <div class="score" id="x-score">X: 0</div>
+            <div class="score" id="o-score">O: 0</div>
+        </div>
+
+        <!-- Tablero del juego -->
         <div class="game-board">
             <div class="cell" data-cell></div>
             <div class="cell" data-cell></div>
@@ -29,6 +37,7 @@
             <div class="cell" data-cell></div>
             <div class="cell" data-cell></div>
         </div>
+
         <p id="winning-message"></p>
         <button onclick="resetGame()">Reiniciar Juego</button>
     </div>
