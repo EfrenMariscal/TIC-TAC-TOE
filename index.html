@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Pantalla de inicio -->
+    <div class="start-screen" id="start-screen">
+        <h1>Bienvenido a Tic-Tac-Toe</h1>
+        <p>Elige el modo de juego</p>
+        <button onclick="startGame('2p')">2 Jugadores</button>
+        <button onclick="startGame('cpu')">Contra la Computadora</button>
+    </div>
+
+    <!-- Tablero del juego (Oculto al principio) -->
+    <div class="game-container" id="game-container" style="display: none;">
+        <h1>Tic-Tac-Toe</h1>
+        <div class="game-board">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+        <p id="winning-message"></p>
+        <button onclick="resetGame()">Reiniciar Juego</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
